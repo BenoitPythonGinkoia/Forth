@@ -62,6 +62,20 @@ symbol_table.STACK = function(...)
   end
 end -- STACK
 
+symbol_table['/'] = function(...)
+  local a, b = pop(2)
+  push(a / b)
+end -- '/'
+
+symbol_table.NEG = function(...)
+  local a = pop()
+  push(a * -1)
+end -- NEG
+
+symbol_table['.'] = function(...)
+  io.write(tostring(pop()), " ")
+end -- '.'
+
 --
 --  Dispatch
 ----------------
